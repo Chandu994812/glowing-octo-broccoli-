@@ -34,3 +34,18 @@ Promise resolutions are microtasks, so their callbacks run before macrotask oper
 It helps avoid UI freezes, reduces bugs in async code, and makes behavior predictable—important for both development and interviews.
 
 ---
+
+## Code
+
+```javascript
+console.log("Start");
+
+setTimeout(() => {
+    console.log("From Timeout");
+}, 0);
+
+Promise.resolve().then(() => {
+    console.log("From Promise");
+});
+
+console.log("End");
